@@ -1,8 +1,11 @@
+/* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginAct, saveTokenAct, updateScoreAct } from '../Redux/Actions';
 import { savePlayerInfo } from '../services/localStorage';
+import './Login.css';
+import Button from '../Components/Button';
 
 class Login extends Component {
   constructor() {
@@ -58,45 +61,52 @@ class Login extends Component {
   render() {
     const { name, email } = this.state;
     return (
-      <div>
-        <label htmlFor="name">
+      <div className="login-page">
+        <h1>Login</h1>
+        <label htmlFor="name" className="login-label">
           Nome:
           <input
+            autoComplete="off"
             name="name"
             id="name"
             type="text"
+            className="login-input"
             value={ name }
             onChange={ this.handleInputChange }
             data-testid="input-player-name"
           />
         </label>
-        <label htmlFor="email">
+        <label htmlFor="email" className="login-label">
           Email:
           <input
+            autoComplete="off"
             name="email"
             id="email"
             type="email"
+            className="login-input"
             value={ email }
             onChange={ this.handleInputChange }
             data-testid="input-gravatar-email"
           />
         </label>
-        <button
-          type="submit"
-          data-testid="btn-play"
-          onClick={ this.handleClick }
-          disabled={ name === '' || email === '' }
-        >
-          Jogar
-        </button>
-        <button
-          type="button"
-          data-testid="btn-settings"
-          onClick={ this.handleClickConfig }
-        >
-          Configurações
-
-        </button>
+        <div className="login-buttons">
+          <Button
+            type="submit"
+            buttonStyle="btn-primary"
+            testid="btn-play"
+            onClick={ this.handleClick }
+            disabled={ name === '' || email === '' }
+          >
+            Jogar
+          </Button>
+          <Button
+            buttonStyle="btn-outline"
+            testid="btn-settings"
+            onClick={ this.handleClickConfig }
+          >
+            Configurações
+          </Button>
+        </div>
       </div>
     );
   }
