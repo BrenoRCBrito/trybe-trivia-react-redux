@@ -11,14 +11,15 @@
 
 .login-page h1 {
   font-weight: 500;
-  margin-bottom: 48px;
+  position: absolute;
+  top: 50px;
 }
 
 .login-label {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   width: 80%;
 }
 
@@ -27,7 +28,7 @@
   border-radius: 4px;
   color: #242424;
   font-size: 18px;
-  margin-top: 8px;
+  margin-top: 4px;
   padding: 8px;
   transition: border 0.2s ease-out;
   width: 100%;
@@ -42,6 +43,30 @@
   display: flex;
   flex-direction: column;
   width: 80%;
+}
+
+.login-buttons .btn-primary {
+  margin: 16px 0 12px;
+}
+
+@media screen and ( min-width : 480px ) {
+
+  .login-label {
+    max-width: 400px;
+  }
+
+  .login-buttons {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 400px;
+    width: 80%;
+  }
+
+  .login-buttons .btn {
+    width: 160px;
+  }
+
 }
 
 /*

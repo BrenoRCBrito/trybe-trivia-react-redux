@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -19,6 +18,7 @@ class Login extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleClickConfig = this.handleClickConfig.bind(this);
     this.fetchToken = this.fetchToken.bind(this);
+    this.renderButtons = this.renderButtons.bind(this);
   }
 
   componentDidMount() {
@@ -58,6 +58,31 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
+  renderButtons() {
+    const { name, email } = this.state;
+
+    return (
+      <div className="login-buttons">
+        <Button
+          type="submit"
+          buttonStyle="btn-primary"
+          testid="btn-play"
+          onClick={ this.handleClick }
+          disabled={ name === '' || email === '' }
+        >
+          Jogar
+        </Button>
+        <Button
+          buttonStyle="btn-outline"
+          testid="btn-settings"
+          onClick={ this.handleClickConfig }
+        >
+          Configurações
+        </Button>
+      </div>
+    );
+  }
+
   render() {
     const { name, email } = this.state;
     return (
@@ -89,24 +114,7 @@ class Login extends Component {
             data-testid="input-gravatar-email"
           />
         </label>
-        <div className="login-buttons">
-          <Button
-            type="submit"
-            buttonStyle="btn-primary"
-            testid="btn-play"
-            onClick={ this.handleClick }
-            disabled={ name === '' || email === '' }
-          >
-            Jogar
-          </Button>
-          <Button
-            buttonStyle="btn-outline"
-            testid="btn-settings"
-            onClick={ this.handleClickConfig }
-          >
-            Configurações
-          </Button>
-        </div>
+        { this.renderButtons() }
       </div>
     );
   }
