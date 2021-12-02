@@ -9,12 +9,6 @@
   width: 100vw;
 }
 
-.login-page h1 {
-  font-weight: 500;
-  position: absolute;
-  top: 50px;
-}
-
 .login-label {
   align-items: flex-start;
   display: flex;

@@ -87,7 +87,6 @@ class Login extends Component {
     const { name, email } = this.state;
     return (
       <div className="login-page">
-        <h1>Login</h1>
         <label htmlFor="name" className="login-label">
           Nome:
           <input
