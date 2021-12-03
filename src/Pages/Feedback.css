@@ -1,0 +1,20 @@
+.feedback-page {
+  font-size: 18px;
+  margin: 48px auto 0;
+  max-width: 260px;
+  text-align: center;
+}
+
+.feedback-page p {
+  line-height: 1.5em;
+}
+
+.feedback-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+}
+
+.feedback-buttons .btn {
+  margin-bottom: 8px;
+}
