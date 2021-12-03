@@ -5,6 +5,7 @@ import sanitizeHtml from 'sanitize-html';
 import { connect } from 'react-redux';
 import { getPlayer, savePlayerInfo } from '../services/localStorage';
 import { updateScoreAct } from '../Redux/Actions';
+import './Questions.css';
 
 class BooleanQuestion extends Component {
   constructor(props) {
@@ -62,24 +63,28 @@ class BooleanQuestion extends Component {
           data-testid="question-text"
           dangerouslySetInnerHTML={ this.sanitize(question) }
         />
-        <button
-          className="btn btn-outline"
-          type="button"
-          data-testid={ correctAnswer === 'True' ? 'correct-answer' : 'wrong-answer-0' }
-          onClick={ this.handleButtonClick }
-          disabled={ timerValue === 0 || isAnswered }
-        >
-          True
-        </button>
-        <button
-          className="btn btn-outline"
-          type="button"
-          data-testid={ correctAnswer === 'False' ? 'correct-answer' : 'wrong-answer-0' }
-          onClick={ this.handleButtonClick }
-          disabled={ timerValue === 0 || isAnswered }
-        >
-          False
-        </button>
+        <div className="question-alternatives">
+          <button
+            className="btn btn-outline"
+            type="button"
+            data-testid={ correctAnswer === 'True' ? 'correct-answer' : 'wrong-answer-0' }
+            onClick={ this.handleButtonClick }
+            disabled={ timerValue === 0 || isAnswered }
+          >
+            True
+          </button>
+          <button
+            className="btn btn-outline"
+            type="button"
+            data-testid={ correctAnswer === 'False'
+              ? 'correct-answer'
+              : 'wrong-answer-0' }
+            onClick={ this.handleButtonClick }
+            disabled={ timerValue === 0 || isAnswered }
+          >
+            False
+          </button>
+        </div>
       </div>
     );
   }

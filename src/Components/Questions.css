@@ -18,6 +18,26 @@
   text-align: left;
 }
 
-.game-question .btn {
+.question-alternatives {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-alternatives .btn {
   margin-bottom: 8px;
+}
+
+@media screen and ( min-width : 650px ) {
+
+  .question-alternatives {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 8px;
+  }
+
+  .question-alternatives .btn {
+    margin: 0;
+  }
 }

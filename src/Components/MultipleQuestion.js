@@ -122,7 +122,9 @@ class MultipleQuestion extends Component {
           data-testid="question-text"
           dangerouslySetInnerHTML={ this.sanitize(question) }
         />
-        { this.getAnswersButtons() }
+        <div className="question-alternatives">
+          { this.getAnswersButtons() }
+        </div>
       </div>
     );
   }

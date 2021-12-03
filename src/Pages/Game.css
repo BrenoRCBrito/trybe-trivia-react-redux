@@ -9,3 +9,10 @@
 .game-page .btn-primary {
   margin-top: 8px;
 }
+
+@media screen and ( min-width : 650px ) {
+
+  .game-page {
+    max-width: 680px;
+  }
+}
