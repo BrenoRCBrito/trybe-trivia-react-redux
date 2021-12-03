@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ProgressBar from '../Components/ProgressBar';
 import { fetchQuestions } from '../Redux/Actions';
 import MultipleQuestion from '../Components/MultipleQuestion';
 import BooleanQuestion from '../Components/BooleanQuestion';
 import Header from '../Components/Header';
 import { addRanking } from '../services/localStorage';
+import './Game.css';
+import Button from '../Components/Button';
 
 class Game extends Component {
   constructor() {
@@ -129,19 +132,20 @@ class Game extends Component {
     const { questions } = this.props;
     const { timerValue, isAnswered } = this.state;
     return (
-      <div>
+      <>
         <Header />
-        <span><strong>{timerValue}</strong></span>
-        {questions.length > 0 && this.renderQuestions() }
-        <button
-          data-testid="btn-next"
-          type="button"
-          onClick={ this.handleNextClick }
-          hidden={ !(isAnswered || timerValue === 0) }
-        >
-          Next
-        </button>
-      </div>
+        <div className="game-page">
+          <ProgressBar bgcolor="#3943b7" completed={ timerValue } />
+          {questions.length > 0 && this.renderQuestions() }
+          <Button
+            testid="btn-next"
+            onClick={ this.handleNextClick }
+            hidden={ !(isAnswered || timerValue === 0) }
+          >
+            Next
+          </Button>
+        </div>
+      </>
     );
   }
 }

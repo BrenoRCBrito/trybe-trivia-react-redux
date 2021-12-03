@@ -51,16 +51,19 @@ class BooleanQuestion extends Component {
     const { correct_answer: correctAnswer,
       category, question } = currentQuestion;
     return (
-      <div>
+      <div className="game-question">
         <span
+          className="question-category"
           data-testid="question-category"
           dangerouslySetInnerHTML={ this.sanitize(category) }
         />
         <p
+          className="question-text"
           data-testid="question-text"
           dangerouslySetInnerHTML={ this.sanitize(question) }
         />
         <button
+          className="btn btn-outline"
           type="button"
           data-testid={ correctAnswer === 'True' ? 'correct-answer' : 'wrong-answer-0' }
           onClick={ this.handleButtonClick }
@@ -69,6 +72,7 @@ class BooleanQuestion extends Component {
           True
         </button>
         <button
+          className="btn btn-outline"
           type="button"
           data-testid={ correctAnswer === 'False' ? 'correct-answer' : 'wrong-answer-0' }
           onClick={ this.handleButtonClick }

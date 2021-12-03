@@ -6,7 +6,7 @@ const STYLES = ['btn-primary', 'btn-outline'];
 
 export default class Button extends Component {
   render() {
-    const { buttonStyle, children, disabled, onClick, testid, type } = this.props;
+    const { buttonStyle, children, disabled, hidden, onClick, testid, type } = this.props;
 
     return (
       <button
@@ -15,6 +15,7 @@ export default class Button extends Component {
         data-testid={ testid }
         onClick={ onClick }
         disabled={ disabled }
+        hidden={ hidden }
       >
         {children}
       </button>
@@ -26,6 +27,7 @@ Button.propTypes = {
   buttonStyle: PropTypes.oneOf(STYLES),
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
+  hidden: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   testid: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['submit', 'button']),
@@ -34,5 +36,6 @@ Button.propTypes = {
 Button.defaultProps = {
   buttonStyle: STYLES[0],
   disabled: false,
+  hidden: false,
   type: 'button',
 };

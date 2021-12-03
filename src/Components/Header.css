@@ -1,0 +1,16 @@
+.header {
+  align-items: center;
+  color: #242424;
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+  justify-content: space-evenly;
+}
+
+.header h2 {
+  font-weight: 500;
+}
+
+.header h3 {
+  font-weight: 400;
+}

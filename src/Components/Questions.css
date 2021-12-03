@@ -1,0 +1,23 @@
+.game-question {
+  color: #242424;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.question-category {
+  align-self: center;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.question-text {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.game-question .btn {
+  margin-bottom: 8px;
+}

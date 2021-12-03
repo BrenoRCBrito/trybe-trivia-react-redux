@@ -1,0 +1,11 @@
+.game-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.game-page .btn-primary {
+  margin-top: 8px;
+}

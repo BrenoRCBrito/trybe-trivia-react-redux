@@ -5,6 +5,7 @@ import sanitizeHtml from 'sanitize-html';
 import { connect } from 'react-redux';
 import { getPlayer, savePlayerInfo } from '../services/localStorage';
 import { updateScoreAct } from '../Redux/Actions';
+import './Questions.css';
 
 class MultipleQuestion extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class MultipleQuestion extends Component {
     return sortedArray.map((answer, index) => (
       <button
         key={ index }
+        className="btn btn-outline"
         type="button"
         onClick={ this.handleButtonClick }
         data-testid={ answer === correctAnswer
@@ -78,7 +80,7 @@ class MultipleQuestion extends Component {
     document.querySelector('[data-testid=wrong-answer-1]').classList.add('incorrect');
     document.querySelector('[data-testid=wrong-answer-2]').classList.add('incorrect');
 
-    const isCorrect = e.target.className === 'correct';
+    const isCorrect = e.target.classList.contains('correct');
     if (isCorrect) {
       const currentScore = getPlayer().player.score;
       const currentAssertions = getPlayer().player.assertions;
@@ -109,12 +111,14 @@ class MultipleQuestion extends Component {
     const { currentQuestion } = this.props;
     const { category, question } = currentQuestion;
     return (
-      <div>
+      <div className="game-question">
         <span
+          className="question-category"
           data-testid="question-category"
           dangerouslySetInnerHTML={ this.sanitize(category) }
         />
         <p
+          className="question-text"
           data-testid="question-text"
           dangerouslySetInnerHTML={ this.sanitize(question) }
         />
