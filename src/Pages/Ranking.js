@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getRanking } from '../services/localStorage';
+import Button from '../Components/Button';
+import './Ranking.css';
 
 export default class Ranking extends Component {
   tableBody() {
     return getRanking().map((a, index) => (
       <tr key={ a.score }>
-        <td><img src={ a.picture } alt={ a.name } /></td>
+        <td><img className="profile-img" src={ a.picture } alt={ a.name } /></td>
         <td data-testid={ `player-name-${index}` }>{a.name}</td>
         <td data-testid={ `player-score-${index}` }>{a.score}</td>
       </tr>
@@ -16,29 +18,26 @@ export default class Ranking extends Component {
   render() {
     const { history } = this.props;
     return (
-      <div>
+      <div className="ranking-page">
         <h1 data-testid="ranking-title">Ranking</h1>
         <table>
           <thead>
             <tr>
-              <th>Imagem</th>
-              <th>Nome</th>
-              <th>Pontuação</th>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Score</th>
             </tr>
           </thead>
           <tbody>
             {this.tableBody()}
           </tbody>
         </table>
-        <button
-          id="go-home"
-          name="go-home"
-          data-testid="btn-go-home"
-          type="button"
+        <Button
+          testid="btn-go-home"
           onClick={ () => history.push('/') }
         >
           Home
-        </button>
+        </Button>
       </div>
     );
   }
