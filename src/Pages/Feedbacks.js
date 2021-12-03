@@ -10,9 +10,9 @@ class Feedback extends Component {
     const { assertions } = this.props;
     const tres = 3;
     if (assertions < tres) {
-      return 'Podia ser melhor... 😅';
+      return 'It could have been better... 😅';
     }
-    return 'Mandou bem!  🥳';
+    return 'Well done! 🥳';
   }
 
   render() {
@@ -22,19 +22,19 @@ class Feedback extends Component {
         <Header />
         <div className="feedback-page">
           <p data-testid="feedback-text">{ this.feedback() }</p>
-          <p data-testid="feedback-total-question">{ `Você acertou ${assertions}` }</p>
+          <p data-testid="feedback-total-question">{ `You got ${assertions}` }</p>
           <div className="feedback-buttons">
             <Button
               testid="btn-play-again"
               onClick={ () => history.push('/') }
             >
-              Jogar novamente
+              Play Again
             </Button>
             <Button
               testid="btn-ranking"
               onClick={ () => history.push('/ranking') }
             >
-              Ver Ranking
+              Ranking
             </Button>
           </div>
         </div>

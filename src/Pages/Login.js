@@ -70,14 +70,14 @@ class Login extends Component {
           onClick={ this.handleClick }
           disabled={ name === '' || email === '' }
         >
-          Jogar
+          Play
         </Button>
         <Button
           buttonStyle="btn-outline"
           testid="btn-settings"
           onClick={ this.handleClickConfig }
         >
-          Configurações
+          Configurations
         </Button>
       </div>
     );
@@ -88,7 +88,7 @@ class Login extends Component {
     return (
       <div className="login-page">
         <label htmlFor="name" className="login-label">
-          Nome:
+          Name:
           <input
             autoComplete="off"
             name="name"

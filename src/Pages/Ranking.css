@@ -26,3 +26,7 @@
 .ranking-page td {
   padding-bottom: 16px;
 }
+
+.ranking-page .btn {
+  align-self: center;
+}
